@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.iu.s2.notice.NoticeDAO">
+  
+  	<!-- 공지 리스트 조회 -->
+  	<select id="getNoticeList" resultType="NoticeDTO">
+  		SELECT * FROM NOTICE 
+  		ORDER BY NOTICENUM DESC
+  	</select>
+  	
+  	<!-- 공지 상세조회 -->
+  	<select id="getNoticeDetail" parameterType="NoticeDTO" resultType="NoticeDTO">
+  		SELECT * FROM NOTICE 
+  		WHERE NOTICENUM = #{noticeNum}
+  	</select>
+  	
+  	<!-- 공지작성 -->
+  	<insert id="setNoticeAdd" parameterType="NoticeDTO">
+  		INSERT INTO NOTICE
+  		VALUES (NOTICENUM_SEQ.NEXTVAL, #{noticeName}, #{noticeDetail}, #{writer}, #{writerDate}, 0)
+  	</insert>
+  	
+  	<!-- 공지수정 -->
+  	<update id="setNoticeUpdate" parameterType="NoticeDTO">
+  		UPDATE NOTICE SET (#{noticeName}, #{noticeDetail}, #{writer}, #{writerDate}) 
+  		WHERE NOTICENUM = #{noticeNum}
+  	</update>
+  	
+  	<!-- 공지삭제 -->
+  	<delete id="setNoticeDelete" parameterType="NoticeDTO">
+  		DELETE NOTICE WHERE NOTICENUM = #{noticeNum}
+  	</delete>
+  </mapper>
+  
+  
