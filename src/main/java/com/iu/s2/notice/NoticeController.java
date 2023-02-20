@@ -67,7 +67,8 @@ public class NoticeController {
 	public ModelAndView setNoticeUpdate(NoticeDTO noticeDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = noticeService.setNoticeUpdate(noticeDTO);
-		mv.setViewName("redirect:./list");
+		String view = "redirect:./detail?noticeNum="+noticeDTO.getNoticeNum();
+		mv.setViewName(view);
 		return mv;
 	}
 	

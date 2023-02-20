@@ -42,5 +42,11 @@ public class NoticeDAO {
 	public int setNoticeImgAdd(NoticeImgDTO noticeImgDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setNoticeImgAdd", noticeImgDTO);
 	}
+	
+	//파일 경로 삭제
+	
+	public int setNoticeImgDelete(NoticeDTO noticeDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"setNoticeImgDelete", noticeDTO);
+	}
 
 }

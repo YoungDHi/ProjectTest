@@ -1,14 +1,16 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<c:import url="./template/common_css.jsp"></c:import>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-<h3><a href="./notice/list">Notice List</a></h3>
-<P>  The time on the server is ${serverTime}. </P>
+	<c:import url="./template/header.jsp"></c:import>
+	
+	<c:import url="./template/common_js.jsp"></c:import>
 </body>
 </html>

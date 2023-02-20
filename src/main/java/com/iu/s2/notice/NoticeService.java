@@ -36,7 +36,7 @@ public class NoticeService {
 	public int setNoticeAdd(NoticeDTO noticeDTO, MultipartFile pic) throws Exception {
 		int result = noticeDAO.setNoticeAdd(noticeDTO);
 		if(pic.getSize()!=0) {
-		String realPath = servletContext.getRealPath("rescources/upload/Notice");
+		String realPath = servletContext.getRealPath("resources/upload/notice");
 		String filename = fileManager.fileSave(pic, realPath);
 		
 		NoticeImgDTO noticeImgDTO = new NoticeImgDTO();
@@ -56,7 +56,9 @@ public class NoticeService {
 	
 	//공지 삭제
 	public int setNoticeDelete(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setNoticeDelete(noticeDTO);
+		int result = noticeDAO.setNoticeImgDelete(noticeDTO);
+		result = noticeDAO.setNoticeDelete(noticeDTO);
+		return result;
 	}
 
 }
