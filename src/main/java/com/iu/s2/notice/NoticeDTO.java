@@ -10,7 +10,14 @@ public class NoticeDTO {
 	private String writer;
 	private Date writeDate;
 	private Long hits;
+	private NoticeImgDTO noticeImgDTO;
 	
+	public NoticeImgDTO getNoticeImgDTO() {
+		return noticeImgDTO;
+	}
+	public void setNoticeImgDTO(NoticeImgDTO noticeImgDTO) {
+		this.noticeImgDTO = noticeImgDTO;
+	}
 	public Long getNoticeNum() {
 		return noticeNum;
 	}

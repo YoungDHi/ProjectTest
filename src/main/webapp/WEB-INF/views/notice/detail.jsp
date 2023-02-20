@@ -13,5 +13,7 @@
 	<h3>내용 : ${dto.noticeDetail}</h3>
 	<h3>작성날짜 : ${dto.writeDate}</h3>
 	<h3>조회수 : ${dto.hits}</h3>
+	<a href="./update?noticeNum=${dto.noticeNum}">상품수정</a>
+	<a href="./delete?noticeNum=${dto.noticeNum}">상품삭제</a>
 </body>
 </html>

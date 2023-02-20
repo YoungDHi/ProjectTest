@@ -29,5 +29,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<a href="./add">공지등록</a>
 </body>
 </html>

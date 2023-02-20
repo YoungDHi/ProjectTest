@@ -19,12 +19,12 @@
   	<!-- 공지작성 -->
   	<insert id="setNoticeAdd" parameterType="NoticeDTO">
   		INSERT INTO NOTICE
-  		VALUES (NOTICENUM_SEQ.NEXTVAL, #{noticeName}, #{noticeDetail}, #{writer}, #{writerDate}, 0)
+  		VALUES (NOTICENUM_SEQ.NEXTVAL, #{noticeName}, #{noticeDetail}, #{writer}, #{writeDate}, 0)
   	</insert>
   	
   	<!-- 공지수정 -->
   	<update id="setNoticeUpdate" parameterType="NoticeDTO">
-  		UPDATE NOTICE SET (#{noticeName}, #{noticeDetail}, #{writer}, #{writerDate}) 
+  		UPDATE NOTICE SET NOTICENAME = #{noticeName}, NOTICEDETAIL = #{noticeDetail}, WRITER = #{writer}, WRITEDATE = #{writeDate} 
   		WHERE NOTICENUM = #{noticeNum}
   	</update>
   	
@@ -32,6 +32,12 @@
   	<delete id="setNoticeDelete" parameterType="NoticeDTO">
   		DELETE NOTICE WHERE NOTICENUM = #{noticeNum}
   	</delete>
+  	
+  	<!-- 파일 업로드 경로 -->
+  	<insert id="setNoticeImgAdd" parameterType="NoticeImgDTO">
+  		INSERT INTO NOTICEIMG
+  		VALUES (NOTICENUM_SEQ.NEXTVAL, #{fileName}, #{oriName}, #{noticeNum})
+  	</insert>
   </mapper>
   
   
