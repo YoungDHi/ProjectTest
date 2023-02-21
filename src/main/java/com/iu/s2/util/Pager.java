@@ -1,6 +1,14 @@
 package com.iu.s2.util;
 
 public class Pager {
+	
+	//겅색종류(사용할 colunm)
+	private String kind;
+	//검색어
+	private String search;
+	
+	
+
 	//Table에서 조회할 시작 번호
 	private Long startRow;
 	//Table에서 조회할 끝번호
@@ -141,4 +149,25 @@ public class Pager {
 		this.after = after;
 	}
 
+	public String getKind() {
+		return kind;
+	}
+	
+	
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	
+	
+	public String getSearch() {
+		if(this.search==null) {
+			search="";
+		}
+		return search;
+	}
+	
+	
+	public void setSearch(String search) {
+		this.search = search;
+	}
 }

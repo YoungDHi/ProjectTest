@@ -51,9 +51,13 @@ public class NoticeDAO {
 	}
 	
 	//파일 경로 삭제
-	
 	public int setNoticeImgDelete(NoticeDTO noticeDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"setNoticeImgDelete", noticeDTO);
+	}
+	
+	//noticeNum 구하는 식
+	public Long getNoticeNum() throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getNoticeNum");
 	}
 
 }

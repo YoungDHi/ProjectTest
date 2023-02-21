@@ -24,6 +24,8 @@ public class NoticeController {
 	@RequestMapping(value = "list")
 	public ModelAndView getNoticeList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		System.out.println(pager.getKind());
+		System.out.println(pager.getSearch());
 		List<NoticeDTO> ar = noticeService.getNoticeList(pager);
 		mv.setViewName("notice/list");
 		mv.addObject("list", ar);
