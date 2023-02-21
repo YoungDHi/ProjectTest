@@ -5,9 +5,15 @@
   <mapper namespace="com.iu.s2.notice.NoticeDAO">
   
   	<!-- 공지 리스트 조회 -->
-  	<select id="getNoticeList" resultType="NoticeDTO">
-  		SELECT * FROM NOTICE 
-  		ORDER BY NOTICENUM DESC
+  	<select id="getNoticeList" parameterType="Pager" resultType="NoticeDTO">
+  		SELECT * FROM (
+			SELECT ROWNUM R, N.* FROM (
+				SELECT * 
+				FROM NOTICE
+				ORDER BY NOTICENUM DESC
+			) N
+		)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
   	</select>
   	
   	<!-- 공지 상세조회 -->
@@ -34,6 +40,11 @@
   			<result column="ORINAME" property="oriName"/>
   		</association>
   	</resultMap>
+  	
+  	<!-- 리스트 총 갯수 -->
+  	<select id="getNoticeCount" resultType="Long">
+  		SELECT COUNT(NOTICENUM) FROM NOTICE
+  	</select>
   	
   	<!-- 공지작성 -->
   	<insert id="setNoticeAdd" parameterType="NoticeDTO">

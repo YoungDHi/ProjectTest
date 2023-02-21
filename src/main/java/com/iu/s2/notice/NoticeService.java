@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.s2.util.FileManager;
+import com.iu.s2.util.Pager;
 
 @Service
 public class NoticeService {
@@ -23,8 +24,14 @@ public class NoticeService {
 	
 	
 	//공지리스트 조회
-	public List<NoticeDTO> getNoticeList() throws Exception {
-		return noticeDAO.getNoticeList();
+	public List<NoticeDTO> getNoticeList(Pager pager) throws Exception {
+		pager.makeRow();
+		Long totalCount = noticeDAO.getNoticeCount();
+		
+		pager.makeNum(totalCount);
+		
+		
+		return noticeDAO.getNoticeList(pager);
 	}
 	
 	//공지 상세 조회

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.s2.util.Pager;
+
 @Controller
 @RequestMapping(value = "/notice/")
 public class NoticeController {
@@ -20,11 +22,12 @@ public class NoticeController {
 	
 	//공지리스트 조회
 	@RequestMapping(value = "list")
-	public ModelAndView getNoticeList() throws Exception {
+	public ModelAndView getNoticeList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<NoticeDTO> ar = noticeService.getNoticeList();
+		List<NoticeDTO> ar = noticeService.getNoticeList(pager);
 		mv.setViewName("notice/list");
 		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
 		return mv;
 	}
 	
