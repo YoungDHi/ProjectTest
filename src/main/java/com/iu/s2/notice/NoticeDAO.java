@@ -21,8 +21,8 @@ public class NoticeDAO {
 	}
 	
 	//리스트 총 갯수
-	public Long getNoticeCount() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getNoticeCount");
+	public Long getNoticeCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getNoticeCount",pager);
 	}
 	
 	//공지 상세 조회
@@ -32,6 +32,7 @@ public class NoticeDAO {
 	
 	//공지 작성
 	public int setNoticeAdd(NoticeDTO noticeDTO) throws Exception {
+			System.out.println("Num : "+noticeDTO.getNoticeNum());
 		return sqlSession.insert(NAMESPACE+"setNoticeAdd", noticeDTO);
 	}
 	

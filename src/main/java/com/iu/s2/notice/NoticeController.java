@@ -21,7 +21,7 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	//공지리스트 조회
-	@RequestMapping(value = "list")
+	@RequestMapping(value = "list",method = RequestMethod.GET)
 	public ModelAndView getNoticeList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getKind());

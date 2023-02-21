@@ -26,7 +26,7 @@ public class NoticeService {
 	//공지리스트 조회
 	public List<NoticeDTO> getNoticeList(Pager pager) throws Exception {
 		pager.makeRow();
-		Long totalCount = noticeDAO.getNoticeCount();
+		Long totalCount = noticeDAO.getNoticeCount(pager);
 		
 		pager.makeNum(totalCount);
 		

@@ -40,7 +40,7 @@
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
 						<li class="page-item">
-							<a class="page-link" href="./list?page=1?kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+							<a class="page-link" href="./list?page=1&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
