@@ -29,10 +29,6 @@
 					<label for="writer" class="form-label">작성자</label>
 					<input type="text" name="writer" class="form-control" id="writer" value="${dto.writer}">
 				</fieldset>
-				<fieldset class="mb-3">
-					<label for="writeDate" class="form-label">작성날짜</label>
-					<input type="text" name="writeDate" class="form-control" id="writeDate" value="${dto.writeDate}">
-				</fieldset>
 				<fieldset>
 					<input type="hidden" name="hits" value="${dto.hits}">
 				</fieldset>

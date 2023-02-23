@@ -52,7 +52,7 @@
   			SELECT NOTICENUM_SEQ.NEXTVAL FROM DUAL
   		</selectKey>
   		INSERT INTO NOTICE
-  		VALUES (#{noticeNum}, #{noticeName}, #{noticeDetail}, #{writer}, #{writeDate}, 0)
+  		VALUES (#{noticeNum}, #{noticeName}, #{noticeDetail}, #{writer}, SYSDATE, 0)
   	</insert>
   	
   	<!-- 파일 업로드 경로 -->
@@ -63,7 +63,7 @@
   	
   	<!-- 공지수정 -->
   	<update id="setNoticeUpdate" parameterType="NoticeDTO">
-  		UPDATE NOTICE SET NOTICENAME = #{noticeName}, NOTICEDETAIL = #{noticeDetail}, WRITER = #{writer}, WRITEDATE = #{writeDate} 
+  		UPDATE NOTICE SET NOTICENAME = #{noticeName}, NOTICEDETAIL = #{noticeDetail}, WRITER = #{writer}, WRITEDATE = SYSDATE 
   		WHERE NOTICENUM = #{noticeNum}
   	</update>
   	

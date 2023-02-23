@@ -29,10 +29,6 @@
 					<textarea name="noticeDetail" class="form-control" id="noticeDetail" rows="7" ></textarea>
 				</div>
 				<div class="mb-3">
-					<label for="writeDate" class="form-label">작성날짜</label>
-					<input type="text" name="writeDate" class="form-control" id="writeDate">
-				</div>
-				<div class="mb-3">
 					<label for="files" class="form-label">Image</label>
 					<input type="file" name="pic" class="form-control" id="files">
 				</div>
